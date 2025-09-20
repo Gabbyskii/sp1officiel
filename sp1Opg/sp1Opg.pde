@@ -1,10 +1,10 @@
 //Declare image variables for each group:
 PImage[] flagsA, flagsB, flagsC, flagsD;
-   
+
 void setup() {
   size(900, 450);
   background(#0E3571);
-  
+   
   //Load all flag images once in setup:
  flagsA = new PImage[4];
   flagsA[0] = loadImage("Russia.png");
@@ -47,6 +47,8 @@ void draw() {
   strokeWeight(3);
   line(450, 0, 450, 600);
   
+ //noStroke on corner boxes cyan  & yellow:
+  noStroke();
   
 //Countries in group A - top left: 
   int i = 0;
@@ -58,22 +60,22 @@ void draw() {
     
     //Draws rects first
     fill(255);
-    rect(20, yPos, 410, 30);
+    rect(20, yPos, 410, 33);
     
     
     //Draw flag on top of rect
     if (flagsA[i] != null) {
-      image(flagsA[i], 18, yPos -2, 70, 34);
+      image(flagsA[i], 18, yPos, 70, 34);
     }
     
     //Cyan corner box for Group A
     fill(0, 255, 255);
-    rect(415, yPos, 15, 30);
-    
+    rect(420, yPos, 10, 33);
+        
    //Country name
     fill(0);
     textSize(20);
-    text(countryName, 100, yPos + 20);
+    text(countryName, 100, yPos + 24);
     
     i++;
   }
@@ -87,20 +89,20 @@ void draw() {
     int yPos = 270 + f * (40 + spaceB);
     
     fill(255);
-    rect(20, yPos, 410, 30);
+    rect(20, yPos, 410, 33);
     
     //Draw flag on top of rect
     if (flagsB[f] != null) {
-      image(flagsB[f], 18, yPos -2, 70, 34);
+      image(flagsB[f], 18, yPos, 70, 34);
     }
     
     //Yellow corner box for Group B
     fill(255, 255, 0);
-    rect(415, yPos, 15, 30);
+    rect(420, yPos, 10, 33);
     
     fill(0);
     textSize(20);
-    text(countryName, 100, yPos + 20);
+    text(countryName, 100, yPos + 24);
     
     f++; 
   }
@@ -114,20 +116,20 @@ void draw() {
     int yPos = 50 + g * (40 + spaceC);
     
     fill(255);
-    rect(470, yPos, 410, 30);
+    rect(470, yPos, 410, 33);
     
     //Draw flag on top of rect
     if (flagsC[g] != null) {
-      image(flagsC[g], 468, yPos-1.5, 70, 34);
+      image(flagsC[g], 468, yPos, 70, 34);
     }
     
     //Cyan corner box for Group C
     fill(0, 255, 255);
-    rect(865, yPos, 15, 30);
+    rect(870, yPos, 10, 33);
     
     fill(0);
     textSize(20);
-    text(countryName, 550, yPos + 20);
+    text(countryName, 550, yPos + 24);
     
     g++; 
   }
@@ -141,20 +143,20 @@ void draw() {
     int yPos = 270 + h * (40 + spaceD);
     
     fill(255);
-    rect(470, yPos, 410, 30);
+    rect(470, yPos, 410, 33);
     
     //Draw flag on top of rect
     if (flagsD[h] != null) {
-      image(flagsD[h], 468, yPos-1.5, 70, 34);
+      image(flagsD[h], 468, yPos, 70, 34);
     }
     
     //Yellow corner box for Group D
     fill(255, 255, 0);
-    rect(865, yPos, 15, 30);
+    rect(870, yPos, 10, 33);
     
     fill(0);
     textSize(20);
-    text(countryName, 550, yPos + 20);
+    text(countryName, 550, yPos + 24);
     
     h++; 
   }
@@ -165,13 +167,13 @@ void draw() {
   
   //Making group A & C text cyan:
   fill(0, 255, 255);
-  text("GROUP A", 180, 30);
-  text("GROUP C", 590, 30);
+  text("GROUP A", 155, 30);
+  text("GROUP C", 635, 30);
   
   //Making group B & D text yellow:
   fill(255, 255, 0);
-  text("GROUP B", 180, 250);
-  text("GROUP D", 590, 250);
+  text("GROUP B", 155, 250);
+  text("GROUP D", 635, 250);
   
 }
   
