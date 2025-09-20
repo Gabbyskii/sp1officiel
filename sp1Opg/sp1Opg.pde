@@ -1,4 +1,4 @@
-//Declare PImage variables for each group:
+//Declare image variables for each group:
 PImage[] flagsA, flagsB, flagsC, flagsD;
    
 void setup() {
@@ -41,18 +41,16 @@ void draw() {
   String[] groupC = {"FRANCE", "AUSTRALIA", "PERU", "DENMARK"};
   String[] groupD = {"ARGENTINA", "ICELAND", "CROATIA", "NIGERIA"};
   
-  println("Arrays created, groupA length");
  
 //Line in middle of screen
   stroke(255);
   strokeWeight(3);
   line(450, 0, 450, 600);
   
-//Country names in group A - top left: 
+  
+//Countries in group A - top left: 
   int i = 0;
   int space = 5;
-  
-  println("About to start Group A loop");
   
   //Loop to draw rects and flags for Group A
   for (String countryName : groupA) {
@@ -62,34 +60,29 @@ void draw() {
     fill(255);
     rect(20, yPos, 410, 30);
     
-    // DEBUG: Print flag loading status
-    println("Group A, index " + i + ": flag is " + (flagsA[i] != null ? "loaded" : "NULL"));
     
-    
-    //Draw flag on top of rect (if it exists)
+    //Draw flag on top of rect
     if (flagsA[i] != null) {
-      image(flagsA[i], 18, yPos -1, 70, 33);
-    } else {
-      println("Flag is NULL for " + countryName);
+      image(flagsA[i], 18, yPos -2, 70, 34);
     }
     
-    // Draw cyan corner box for Group A
+    //Cyan corner box for Group A
     fill(0, 255, 255);
     rect(415, yPos, 15, 30);
     
-    //Country name
+   //Country name
     fill(0);
     textSize(20);
-    text(countryName, 120, yPos + 20);
+    text(countryName, 100, yPos + 20);
     
     i++;
   }
     
-  //Country names in group B - bottom left: 
+//Countries in group B - bottom left: 
   int f = 0;
   int spaceB = 5;
   
-  // Loop to draw rectangles and flags for Group B
+  //Loop to draw rects and flags for Group B
   for (String countryName : groupB) {
     int yPos = 270 + f * (40 + spaceB);
     
@@ -98,21 +91,21 @@ void draw() {
     
     //Draw flag on top of rect
     if (flagsB[f] != null) {
-      image(flagsB[f], 18, yPos -1, 70, 33);
+      image(flagsB[f], 18, yPos -2, 70, 34);
     }
     
-    // Draw yellow corner box for Group B
+    //Yellow corner box for Group B
     fill(255, 255, 0);
     rect(415, yPos, 15, 30);
     
     fill(0);
     textSize(20);
-    text(countryName, 120, yPos + 20);
+    text(countryName, 100, yPos + 20);
     
     f++; 
   }
    
-  //Country names in group C - top right: 
+ //Countries in group C - top right: 
   int g = 0;
   int spaceC = 5;
   
@@ -128,7 +121,7 @@ void draw() {
       image(flagsC[g], 468, yPos-1.5, 70, 34);
     }
     
-    // Draw cyan corner box for Group C
+    //Cyan corner box for Group C
     fill(0, 255, 255);
     rect(865, yPos, 15, 30);
     
@@ -139,11 +132,11 @@ void draw() {
     g++; 
   }
   
-  //Country names in group D - bottom right: 
+  //Countries in group D - bottom right: 
   int h = 0;
   int spaceD = 5;
   
-  //Loop to draw rectangles and flags for Group D:
+  //Loop to draw rectangles and flags for Group D
   for (String countryName : groupD) {
     int yPos = 270 + h * (40 + spaceD);
     
@@ -155,7 +148,7 @@ void draw() {
       image(flagsD[h], 468, yPos-1.5, 70, 34);
     }
     
-    // Draw yellow corner box for Group D
+    //Yellow corner box for Group D
     fill(255, 255, 0);
     rect(865, yPos, 15, 30);
     
@@ -166,10 +159,9 @@ void draw() {
     h++; 
   }
   
-  //Group labels:
+//Group labels:
   fill(255);
   textSize(20);
-  stroke(2);
   
   //Making group A & C text cyan:
   fill(0, 255, 255);
@@ -180,5 +172,6 @@ void draw() {
   fill(255, 255, 0);
   text("GROUP B", 180, 250);
   text("GROUP D", 590, 250);
+  
 }
   
