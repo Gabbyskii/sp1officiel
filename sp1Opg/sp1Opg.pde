@@ -7,12 +7,13 @@ void setup() {
  }
   
 
-
 void draw() {
  // Line in middle of screen
   stroke(255);
   strokeWeight(3);
   line(450, 0, 450, 600);
+  
+  println("my code works");
   
   // Country names in group A - top left: 
   String[] groupA = {"RUSSIA", "SAUDI ARABIA", "EGYPT", "URUGUAY"};
@@ -22,11 +23,15 @@ void draw() {
   
   // Loop to draw rectangles
   for (String countryName : groupA) {
+    int yPos = 50 + i * (40 + space);
+    
     fill(255);
-    rect(20, 50 + i * (40 + space), 410, 30);
+    rect(20, yPos, 410, 30);
+    
+    
     fill(0);
     textSize(20);
-    text(countryName, 120, 60 + i * (40 + space), 300, 90);
+    text(countryName, 120, yPos + 10, 300, 90);
     i++; 
   }
     
