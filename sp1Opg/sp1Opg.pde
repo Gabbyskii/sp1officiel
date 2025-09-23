@@ -1,21 +1,20 @@
-//Declare image variables for each group:
+//Erklærer image-arrays til flagene i hver gruppe
 PImage[] flagsA, flagsB, flagsC, flagsD;
-
-//initialisere min class group
+//Initialisere min class til gruppe-overskrifter
 Groups groupLabels;
-
+//Skrifttype til overskrifterne:
 PFont boldFont;
 
 void setup() {
   size(900, 450);
   background(#0E3571);
   
- //Initialize the Groups object
+//Opretter et objekt af klassen Groups:
   groupLabels = new Groups();
   boldFont = loadFont("AvenirNextCondensed-Bold-20.vlw");
   
   
-  //Load all flag images once in setup:
+//Indlæser alle flag-bilag én gang i setup:
 flagsA = new PImage[4];
   flagsA[0] = loadImage("Russia.png");
   flagsA[1] = loadImage("SaudiArabia.png");
@@ -43,46 +42,47 @@ flagsA = new PImage[4];
 
 void draw() {
   background(#0E3571);
-  //println(frameCount);
-  println("Draw is running!");
- 
+  //test for at se om draw stadig løber
+  println("Draw is running");
+
+//String array af landenavnene for hver gruppe
   String[] groupA = {"RUSSIA", "SAUDI ARABIA", "EGYPT", "URUGUAY"};
   String[] groupB = {"PORTUGAL", "SPAIN", "MOROCCO", "IRAN"};
   String[] groupC = {"FRANCE", "AUSTRALIA", "PERU", "DENMARK"};
   String[] groupD = {"ARGENTINA", "ICELAND", "CROATIA", "NIGERIA"};
   
  
-//Line in middle of screen
+//Lodret hvid linje i midten af skærmen
   stroke(255);
   strokeWeight(3);
   line(450, 0, 450, 600);
   
- //noStroke on corner boxes cyan  & yellow:
+ //noStroke omkring de hjørne-bokse i lyseblå  & gul
   noStroke();
   
-//Countries in group A - top left: 
+//Lande i group A - øverst venstre hjørne: 
   int i = 0;
   int space = 5;
   
-  //Loop to draw rects and flags for Group A
+  //for-loop - tegner rects og flag for group A
   for (String countryName : groupA) {
     int yPos = 50 + i * (40 + space);
     
-    //Draws rects first
+    //Tegner hvid rect først
     fill(255);
     rect(20, yPos, 410, 33);
     
     
-    //Draw flag on top of rect
+   //if-statement tegner flaget over rect, hvis flag != intet. - den eneste løsning der fungerede
     if (flagsA[i] != null) {
       image(flagsA[i], 18, yPos, 70, 34);
     }
     
-    //Cyan corner box for Group A
+    //Lyseblå hjørne-boks for Group A
     fill(0, 255, 255);
     rect(420, yPos, 10, 33);
         
-   //Country name
+   //Landenavn
     fill(0);
     textSize(20);
     text(countryName, 100, yPos + 24);
@@ -90,26 +90,28 @@ void draw() {
     i++;
   }
     
-//Countries in group B - bottom left: 
+//Lande i group B - nederst venstre: 
   int f = 0;
   int spaceB = 5;
   
-  //Loop to draw rects and flags for Group B
+  //for-loop - tegner rects og flag for group B
   for (String countryName : groupB) {
     int yPos = 270 + f * (40 + spaceB);
     
+   //Tegner hvid rect først
     fill(255);
     rect(20, yPos, 410, 33);
     
-    //Draw flag on top of rect
+    //if-statement tegner flaget over rect
     if (flagsB[f] != null) {
       image(flagsB[f], 18, yPos, 70, 34);
     }
     
-    //Yellow corner box for Group B
+    //Gul hjørne-boks for Group B
     fill(255, 255, 0);
     rect(420, yPos, 10, 33);
     
+    //Landenavn
     fill(0);
     textSize(20);
     text(countryName, 100, yPos + 24);
@@ -117,26 +119,28 @@ void draw() {
     f++; 
   }
    
- //Countries in group C - top right: 
+ //Lande i group C - øverst højre: 
   int g = 0;
   int spaceC = 5;
   
-  //Loop to draw rectangles and flags for Group C:
+  //for-loop - tegner rects og flag for group C:
   for (String countryName : groupC) {
     int yPos = 50 + g * (40 + spaceC);
     
+    //Tegner hvid rect først
     fill(255);
     rect(470, yPos, 410, 33);
     
-    //Draw flag on top of rect
+   //if-statement tegner flaget over rect
     if (flagsC[g] != null) {
       image(flagsC[g], 468, yPos, 70, 34);
-    }
+     }
     
-    //Cyan corner box for Group C
+    //Lyseblå hjørne-boks for Group C
     fill(0, 255, 255);
     rect(870, yPos, 10, 33);
-    
+   
+   //Landenavn
     fill(0);
     textSize(20);
     text(countryName, 550, yPos + 24);
@@ -144,33 +148,38 @@ void draw() {
     g++; 
   }
   
-  //Countries in group D - bottom right: 
+//Lande i group D - nederst højre: 
   int h = 0;
   int spaceD = 5;
   
-  //Loop to draw rectangles and flags for Group D
+  //for-loop - tegner rects og flag for group D
   for (String countryName : groupD) {
     int yPos = 270 + h * (40 + spaceD);
     
+    //Tegner hvid rect først
     fill(255);
     rect(470, yPos, 410, 33);
     
-    //Draw flag on top of rect
+    //if-statement tegner flaget over rect
     if (flagsD[h] != null) {
       image(flagsD[h], 468, yPos, 70, 34);
-    }
+      }
     
-    //Yellow corner box for Group D
+    //Gul hjørne-boks for Group D
     fill(255, 255, 0);
     rect(870, yPos, 10, 33);
     
+    //Landenavn
     fill(0);
     textSize(20);
     text(countryName, 550, yPos + 24);
     
     h++; 
   }
+ //Viser gruppeoverskrifter:
  groupLabels.displayGroups();
   
 }
+
+
  
