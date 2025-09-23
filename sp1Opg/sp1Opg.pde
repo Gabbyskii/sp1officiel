@@ -1,12 +1,20 @@
 //Declare image variables for each group:
 PImage[] flagsA, flagsB, flagsC, flagsD;
+
+//initialisere min class group
 Groups groupLabels;
+
+PFont boldFont;
 
 void setup() {
   size(900, 450);
   background(#0E3571);
-  groupLabels = new Groups(); // Initialize the Groups object
-   
+  
+ //Initialize the Groups object
+  groupLabels = new Groups();
+  boldFont = loadFont("AvenirNextCondensed-Bold-20.vlw");
+  
+  
   //Load all flag images once in setup:
 flagsA = new PImage[4];
   flagsA[0] = loadImage("Russia.png");
