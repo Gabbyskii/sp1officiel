@@ -1,12 +1,14 @@
 //Declare image variables for each group:
 PImage[] flagsA, flagsB, flagsC, flagsD;
+Groups groupLabels;
 
 void setup() {
   size(900, 450);
   background(#0E3571);
+  groupLabels = new Groups(); // Initialize the Groups object
    
   //Load all flag images once in setup:
- flagsA = new PImage[4];
+flagsA = new PImage[4];
   flagsA[0] = loadImage("Russia.png");
   flagsA[1] = loadImage("SaudiArabia.png");
   flagsA[2] = loadImage("Egypt.png");
@@ -33,8 +35,8 @@ void setup() {
 
 void draw() {
   background(#0E3571);
-  
-  println("Draw function is running!");
+  //println(frameCount);
+  println("Draw is running!");
  
   String[] groupA = {"RUSSIA", "SAUDI ARABIA", "EGYPT", "URUGUAY"};
   String[] groupB = {"PORTUGAL", "SPAIN", "MOROCCO", "IRAN"};
@@ -160,20 +162,7 @@ void draw() {
     
     h++; 
   }
-  
-//Group labels:
-  fill(255);
-  textSize(20);
-  
-  //Making group A & C text cyan:
-  fill(0, 255, 255);
-  text("GROUP A", 155, 30);
-  text("GROUP C", 635, 30);
-  
-  //Making group B & D text yellow:
-  fill(255, 255, 0);
-  text("GROUP B", 155, 250);
-  text("GROUP D", 635, 250);
+ groupLabels.displayGroups();
   
 }
-  
+ 
